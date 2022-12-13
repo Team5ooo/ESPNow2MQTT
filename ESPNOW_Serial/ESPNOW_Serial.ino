@@ -18,7 +18,7 @@ typedef struct struct_message {
   float   battery;
 } struct_message;
 
-
+struct_message msg;
 
 void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   memcpy(&msg, incomingData, sizeof(msg));
@@ -38,6 +38,7 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
 // Serial.println();
 
   serializeJson(doc, Serial);
+  Serial.println();
 
 }
  
